@@ -40,6 +40,10 @@ app.use('/images', (req, res, next) => {
     next();
 }, express.static("uploads"));
 
+app.use((req, res, next) => {
+    res.setHeader('Referrer-Policy', 'no-referrer');
+    next();
+})
 //db connection
 connectDB();
 
